@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userprofile-deployment
+  labels:
+    app: tripInsights
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: userprofile-1.0
+  template:
+    metadata:
+      labels:
+        app: userprofile-1.0
+    spec:
+      containers:
+      - name: userprofile
+        image: registrypek4427.azurecr.io/userprofile:1.0
+        env:
+        - name: SQL_USER
+          value: "sqladminpEk4427"
+        - name: SQL_PASSWORD
+          value: "mC5fp1Xi8"
+        - name: SQL_SERVER
+          value: "sqlserverpek4427.database.windows.net"
+        - name: SQL_DBNAME
+          value: "mydrivingDB"
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: userprofile-service
+  labels:
+    run: userprofile-service
+spec:
+  ports:
+  - protocol: TCP
+    name: http
+    port: 8080
+    targetPort: 80
+  selector:
+    app: userprofile-1.0
+
