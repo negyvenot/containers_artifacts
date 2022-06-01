@@ -19,13 +19,29 @@ spec:
         image: registrypek4427.azurecr.io/trips:1.0
         env:
         - name: SQL_USER
-          value: "sqladminpEk4427"
+          valueFrom: 
+            secretKeyRef:
+              name: db-user-pass
+              key: SQL_USER
+              optional: false
         - name: SQL_PASSWORD
-          value: "mC5fp1Xi8"
+          valueFrom: 
+            secretKeyRef:
+              name: db-user-pass
+              key: SQL_PASSWORD
+              optional: false
         - name: SQL_SERVER
-          value: "sqlserverpek4427.database.windows.net"
+          valueFrom: 
+            secretKeyRef:
+              name: db-user-pass
+              key: SQL_SERVER
+              optional: false
         - name: SQL_DBNAME
-          value: "mydrivingDB"
+          valueFrom: 
+            secretKeyRef:
+              name: db-user-pass
+              key: SQL_DBNAME
+              optional: false
         - name: OPENAPI_DOCS_URI
           value: "http://localhost:80"
         ports:
