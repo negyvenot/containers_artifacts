@@ -15,3 +15,13 @@ docker run --network test_network -e SQLFQDN=sql1 -e SQLUSER=SA -e SQLPASS=openh
 docker build -t openhack_poi:latest -f Dockerfile_3 ./
 
 docker run -d -p 8080:80 --name poi --network <network-name> -e ASPNETCORE_ENVIRONMENT=Local <imagename>
+
+ACR Login Server: registrypek4427.azurecr.io
+ACR Username: registrypek4427
+ACR Password: EeF35FyKuBDM+jtZJjPLrnomkLjScJtW
+SQL Server: sqlserverpek4427
+SQL Server Username: sqladminpEk4427
+SQL Server Password: mC5fp1Xi8
+Simulator url: simulatorregistrypek4427.northeurope.azurecontainer.io
+api-dev password: tS3as0Tr0
+web-dev password: pW5vo5As4
