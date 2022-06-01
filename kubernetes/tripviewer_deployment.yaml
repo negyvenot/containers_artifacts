@@ -6,7 +6,7 @@ metadata:
   labels:
     app: tripInsights
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: tripviewer-1.0
@@ -20,9 +20,9 @@ spec:
         image: registrypek4427.azurecr.io/tripviewer:1.0
         env:
         - name: TRIPS_API_ENDPOINT
-          value: "http://trips-service.default.svc.cluster.local:8080"
+          value: "http://trips-service.api.svc.cluster.local:8080"
         - name: USERPROFILE_API_ENDPOINT
-          value: "http://userprofile-service.default.svc.cluster.local:8080"
+          value: "http://userprofile-service.api.svc.cluster.local:8080"
         ports:
         - containerPort: 80
 
