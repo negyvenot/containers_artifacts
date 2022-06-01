@@ -1,0 +1,27 @@
+
+Environment for Lab: microsoft-open-hack-containers-v4
+Subscription	Displayname	UserName	Password	Role
+98012-356b8-1@skillmeup.com	user_mV8Qr@msftopenhack6786ops.onmicrosoft.com	3)iXqHVn	
+cb30587f-dd57-4d17-97d4-b0fbcd659c13	Hacker Two	hacker2ptr@msftopenhack6786ops.onmicrosoft.com	a!FkSFCXWS6	owner
+cb30587f-dd57-4d17-97d4-b0fbcd659c13	Hacker One	hacker102g@msftopenhack6786ops.onmicrosoft.com	%lP)XzO%Y6	owner
+cb30587f-dd57-4d17-97d4-b0fbcd659c13	Hacker Three	hacker37wr@msftopenhack6786ops.onmicrosoft.com	w&hz&7i*M9	owner
+cb30587f-dd57-4d17-97d4-b0fbcd659c13	Hacker Six	hacker6cv9@msftopenhack6786ops.onmicrosoft.com	M(jV%bX!6	owner
+cb30587f-dd57-4d17-97d4-b0fbcd659c13	Hacker Five	hacker5892@msftopenhack6786ops.onmicrosoft.com	KMDNu!9l!	owner
+cb30587f-dd57-4d17-97d4-b0fbcd659c13	Hacker Four	hacker4d49@msftopenhack6786ops.onmicrosoft.com	P*9Tu8hTDN	owner
+
+
+docker run --network test_network -e SQLFQDN=sql1 -e SQLUSER=SA -e SQLPASS=openhack_22 -e SQLDB=mydrivingDB registrypek4427.azurecr.io/data-load:1.0
+
+docker build -t openhack_poi:latest -f Dockerfile_3 ./
+
+docker run -d -p 8080:80 --name poi --network <network-name> -e ASPNETCORE_ENVIRONMENT=Local <imagename>
+
+ACR Login Server: registrypek4427.azurecr.io
+ACR Username: registrypek4427
+ACR Password: EeF35FyKuBDM+jtZJjPLrnomkLjScJtW
+SQL Server: sqlserverpek4427
+SQL Server Username: sqladminpEk4427
+SQL Server Password: mC5fp1Xi8
+Simulator url: simulatorregistrypek4427.northeurope.azurecontainer.io
+api-dev password: tS3as0Tr0
+web-dev password: pW5vo5As4
