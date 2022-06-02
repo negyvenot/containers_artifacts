@@ -25,3 +25,11 @@ SQL Server Password: mC5fp1Xi8
 Simulator url: simulatorregistrypek4427.northeurope.azurecontainer.io
 api-dev password: tS3as0Tr0
 web-dev password: pW5vo5As4
+
+
+az keyvault create -n whatever-tresor-1 -g teamResources -l northeurope
+
+az keyvault secret set --vault-name whatever-tresor-1 -n SQL-USER --value sqladminpEk4427
+az keyvault secret set --vault-name whatever-tresor-1 -n SQL-PASSWORD --value mC5fp1Xi8
+az keyvault secret set --vault-name whatever-tresor-1 -n SQL-SERVER --value sqlserverpek4427
+az keyvault secret set --vault-name whatever-tresor-1 -n SQL-DBNAME --value mydrivingDB
