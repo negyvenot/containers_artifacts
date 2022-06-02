@@ -18,33 +18,19 @@ spec:
       containers:
       - name: userprofile
         image: registrypek4427.azurecr.io/userprofile:1.0
-        env:
-        - name: SQL_USER
-          valueFrom: 
-            secretKeyRef:
-              name: db-user-pass
-              key: SQL_USER
-              optional: false
-        - name: SQL_PASSWORD
-          valueFrom: 
-            secretKeyRef:
-              name: db-user-pass
-              key: SQL_PASSWORD
-              optional: false
-        - name: SQL_SERVER
-          valueFrom: 
-            secretKeyRef:
-              name: db-user-pass
-              key: SQL_SERVER
-              optional: false
-        - name: SQL_DBNAME
-          valueFrom: 
-            secretKeyRef:
-              name: db-user-pass
-              key: SQL_DBNAME
-              optional: false
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: secrets-store01-inline
+          mountPath: "/secrets"
+          readOnly: true
+      volumes:
+        - name: secrets-store01-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: "azure-kvname-user-msi"
 
 ---
 

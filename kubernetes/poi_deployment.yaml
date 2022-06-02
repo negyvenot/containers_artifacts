@@ -18,16 +18,15 @@ spec:
       containers:
       - name: poi
         image: registrypek4427.azurecr.io/poi:1.0
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
         volumeMounts:
         - name: secrets-store01-inline
           mountPath: "/secrets"
           readOnly: true
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          value: "Development"
-        ports:
-        - containerPort: 80
-
       volumes:
         - name: secrets-store01-inline
           csi:

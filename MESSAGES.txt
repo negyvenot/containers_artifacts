@@ -46,7 +46,7 @@ az keyvault create -n whatever-tresor-1 -g teamResources -l northeurope
 # Add Secrets
 az keyvault secret set --vault-name whatever-tresor-1 -n SQL-USER --value sqladminpEk4427
 az keyvault secret set --vault-name whatever-tresor-1 -n SQL-PASSWORD --value mC5fp1Xi8
-az keyvault secret set --vault-name whatever-tresor-1 -n SQL-SERVER --value sqlserverpek4427
+az keyvault secret set --vault-name whatever-tresor-1 -n SQL-SERVER --value sqlserverpek4427.database.windows.net
 az keyvault secret set --vault-name whatever-tresor-1 -n SQL-DBNAME --value mydrivingDB
 
 # Update cluster with managed-identity feature
