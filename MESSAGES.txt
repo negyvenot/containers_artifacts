@@ -64,3 +64,7 @@ az aks show -g teamResources -n SecuredCluster --query addonProfiles.azureKeyvau
 az keyvault set-policy -n whatever-tresor-1 --secret-permissions get --spn 9dda0ba0-346f-4145-9b94-57564494dd86
 ## set policy to access certs in your key vault
 #az keyvault set-policy -n whatever-tresor-1 --certificate-permissions get --spn 9dda0ba0-346f-4145-9b94-57564494dd86
+
+https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver
+
+
