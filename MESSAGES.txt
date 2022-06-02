@@ -26,10 +26,27 @@ Simulator url: simulatorregistrypek4427.northeurope.azurecontainer.io
 api-dev password: tS3as0Tr0
 web-dev password: pW5vo5As4
 
-
+# Create Key Vault
 az keyvault create -n whatever-tresor-1 -g teamResources -l northeurope
 
+# Add Secrets
 az keyvault secret set --vault-name whatever-tresor-1 -n SQL-USER --value sqladminpEk4427
 az keyvault secret set --vault-name whatever-tresor-1 -n SQL-PASSWORD --value mC5fp1Xi8
 az keyvault secret set --vault-name whatever-tresor-1 -n SQL-SERVER --value sqlserverpek4427
 az keyvault secret set --vault-name whatever-tresor-1 -n SQL-DBNAME --value mydrivingDB
+
+# Update cluster with managed-identity feature
+az aks update -g teamResources -n SecuredCluster --enable-managed-identity
+
+# Query identity client ID
+az aks show -g teamResources -n SecuredCluster --query addonProfiles.azureKeyvaultSecretsProvider.identity.clientId -o tsv
+
+=> 9dda0ba0-346f-4145-9b94-57564494dd86
+
+# To grant your identity permissions that enable it to read your key vault and view its contents, run the following commands:
+## set policy to access keys in your key vault
+#az keyvault set-policy -n whatever-tresor-1 --key-permissions get --spn 9dda0ba0-346f-4145-9b94-57564494dd86
+# set policy to access secrets in your key vault
+az keyvault set-policy -n whatever-tresor-1 --secret-permissions get --spn 9dda0ba0-346f-4145-9b94-57564494dd86
+## set policy to access certs in your key vault
+#az keyvault set-policy -n whatever-tresor-1 --certificate-permissions get --spn 9dda0ba0-346f-4145-9b94-57564494dd86
